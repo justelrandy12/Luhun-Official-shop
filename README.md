@@ -1,20 +1,24 @@
-# Luhun Official
-
-Static storefront for **Luhun Official** — sneakers (kids through size 14), t-shirts, and hoodies.
-
-## Deploy on Vercel
-
-1. Push this folder to a GitHub repo (all files in the **root** of the repo).
-2. Go to [vercel.com/new](https://vercel.com/new).
-3. Import your GitHub repo.
-4. **Framework Preset:** Other
-5. **Build Command:** leave empty
-6. **Output Directory:** leave empty
-7. Click **Deploy**
-
-No build step required.
-
-## Run locally
-
+**Shoes**
 ```bash
-npx serve .
+curl.exe -sL "https://luhun.store/collections/size-10/products.json?limit=250" -o col-size-10.json
+# Repeat for: kids-sneakers, size-7 … size-14 (see scripts/import-shoes.mjs)
+node scripts/import-shoes.mjs
+```
+**Clothing**
+```bash
+curl.exe -sL "https://luhun.store/collections/t-shirts/products.json?limit=250" -o col-t-shirts.json
+node scripts/import-clothing.mjs
+```
+---
+## Store location
+**3373 Princeton Rd Suite 131**  
+Hamilton, Ohio 45011
+---
+## Tech stack
+- HTML, CSS, JavaScript (ES modules)
+- No build step — static files only
+- Product data imported from Shopify collection JSON
+Checkout is demo-only; connect Shopify or Stripe for live payments in production.
+---
+## License
+All rights reserved.
